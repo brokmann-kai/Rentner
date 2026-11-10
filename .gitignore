@@ -1,0 +1,26 @@
+## Build
+**/bin/
+**/obj/
+**/out/
+*.user
+*.suo
+*.sdf
+*.opensdf
+.vs/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+ARM64/
+
+## Driver artifacts (local builds)
+/drivers/*.sys
+/drivers/*.pdb
+!/drivers/.gitkeep
+
+## OS / IDE
+Thumbs.db
+Desktop.ini
+*.swp
+.idea/
+*.DotSettings.user

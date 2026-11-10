@@ -2,8 +2,8 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="FrischStart — PC-Schutz für Angehörige"
-        Width="720" Height="640"
-        MinWidth="640" MinHeight="560"
+        Width="760" Height="700"
+        MinWidth="640" MinHeight="600"
         WindowStartupLocation="CenterScreen"
         Background="#F7F3EC">
   <Grid Margin="28">
@@ -17,34 +17,38 @@
 
     <StackPanel Grid.Row="0">
       <TextBlock Text="FrischStart" FontSize="36" FontWeight="SemiBold" Foreground="#1F3A2E"/>
-      <TextBlock Text="Nach dem Neustart ist der PC wieder sauber."
-                 FontSize="20" Foreground="#3D4F45" Margin="0,6,0,0"/>
+      <TextBlock Text="Open-Source-Schutz: Nach dem Neustart ist der PC wieder sauber."
+                 FontSize="18" Foreground="#3D4F45" Margin="0,6,0,0"/>
+      <TextBlock Text="Technik: Differencing-VHD (kein Testmodus, kein Zertifikat)."
+                 FontSize="14" Foreground="#5A6B62" Margin="0,4,0,0"/>
     </StackPanel>
 
-    <Border Grid.Row="1" Background="#E7EFE8" Padding="16" Margin="0,20,0,0" CornerRadius="8">
+    <Border Grid.Row="1" Background="#E7EFE8" Padding="16" Margin="0,16,0,0" CornerRadius="8">
       <StackPanel>
         <TextBlock x:Name="StatusTitle" FontSize="22" FontWeight="SemiBold" Text="Status wird gelesen…"/>
-        <TextBlock x:Name="StatusDetails" Margin="0,8,0,0" Foreground="#334038"/>
+        <TextBlock x:Name="StatusDetails" Margin="0,8,0,0" Foreground="#334038" FontSize="15"/>
       </StackPanel>
     </Border>
 
-    <ScrollViewer Grid.Row="2" Margin="0,20,0,0" VerticalScrollBarVisibility="Auto">
+    <ScrollViewer Grid.Row="2" Margin="0,16,0,0" VerticalScrollBarVisibility="Auto">
       <StackPanel>
-        <TextBlock Text="Für Angehörige — einmal einrichten:" FontWeight="SemiBold" FontSize="20"/>
-        <TextBlock Margin="0,8,0,0"
-                   Text="1) Testmodus aktivieren und neu starten&#10;2) Schutz für C: einschalten und erneut neu starten&#10;3) Fotos und Dokumente nur auf der externen Festplatte speichern"/>
-
-        <ItemsControl x:Name="VolumeList" Margin="0,16,0,0"/>
+        <TextBlock Text="Für Angehörige" FontWeight="SemiBold" FontSize="20"/>
+        <TextBlock Margin="0,8,0,0" FontSize="16"
+                   Text="1) „Installation starten“ — bestehendes Windows übernehmen ODER neu installieren&#10;2) Fotos nur auf die externe Festplatte&#10;3) Neu starten → „FrischStart (geschützt)“&#10;4) Senior: bei Problemen einfach neu starten"/>
+        <ItemsControl x:Name="VolumeList" Margin="0,12,0,0"/>
       </StackPanel>
     </ScrollViewer>
 
     <StackPanel Grid.Row="3" Margin="0,12,0,0">
-      <Button x:Name="BtnTestSigning" Content="1. Testmodus aktivieren" Click="BtnTestSigning_OnClick"/>
-      <Button x:Name="BtnEnable" Content="2. Schutz für C: einschalten" Click="BtnEnable_OnClick"/>
-      <Button x:Name="BtnDisable" Content="Schutz ausschalten (dann neu starten)" Click="BtnDisable_OnClick"/>
+      <Button x:Name="BtnInstall" Content="Installation starten (Assistent)" Click="BtnInstall_OnClick"
+              FontWeight="SemiBold"/>
+      <Button x:Name="BtnEnable" Content="VHD-Schutz aktivieren" Click="BtnEnable_OnClick"/>
+      <Button x:Name="BtnResetNow" Content="Jetzt sauberen nächsten Start vorbereiten" Click="BtnResetNow_OnClick"/>
+      <Button x:Name="BtnDisable" Content="Schutz ausschalten" Click="BtnDisable_OnClick"/>
+      <Button x:Name="BtnOpenDocs" Content="Setup-Anleitung öffnen" Click="BtnOpenDocs_OnClick"/>
       <Button x:Name="BtnRefresh" Content="Status aktualisieren" Click="BtnRefresh_OnClick"/>
     </StackPanel>
 
-    <TextBlock Grid.Row="4" x:Name="MessageText" Margin="0,16,0,0" FontSize="16" Foreground="#5A2E14"/>
+    <TextBlock Grid.Row="4" x:Name="MessageText" Margin="0,14,0,0" FontSize="15" Foreground="#5A2E14"/>
   </Grid>
 </Window>

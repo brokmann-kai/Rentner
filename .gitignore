@@ -18,6 +18,10 @@ ARM64/
 /drivers/*.pdb
 !/drivers/.gitkeep
 
+## Logs / temp
+*.log
+*.tmp
+
 ## OS / IDE
 Thumbs.db
 Desktop.ini

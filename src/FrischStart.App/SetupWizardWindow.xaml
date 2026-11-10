@@ -1,0 +1,35 @@
+<Window x:Class="FrischStart.App.SetupWizardWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="FrischStart — Installation"
+        Width="820" Height="700"
+        MinWidth="720" MinHeight="600"
+        WindowStartupLocation="CenterOwner"
+        Background="#F7F3EC">
+  <Grid Margin="28">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+
+    <TextBlock Grid.Row="0" Text="Installation" FontSize="32" FontWeight="SemiBold" Foreground="#1F3A2E"/>
+    <TextBlock Grid.Row="1" x:Name="StepTitle" Margin="0,8,0,0" FontSize="20" FontWeight="SemiBold" Text="Schritt"/>
+    <ScrollViewer Grid.Row="2" Margin="0,12,0,0" VerticalScrollBarVisibility="Auto">
+      <StackPanel>
+        <TextBlock x:Name="StepBody" FontSize="17" TextWrapping="Wrap"/>
+        <StackPanel x:Name="OptionsPanel" Margin="0,16,0,0"/>
+        <TextBlock x:Name="ProgressText" Margin="0,16,0,0" FontSize="15" Foreground="#5A2E14" TextWrapping="Wrap"/>
+      </StackPanel>
+    </ScrollViewer>
+
+    <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,16,0,0">
+      <Button x:Name="BtnBack" Content="Zurück" Width="140" Margin="0,0,12,0" Click="BtnBack_OnClick"/>
+      <Button x:Name="BtnNext" Content="Weiter" Width="180" Click="BtnNext_OnClick"/>
+    </StackPanel>
+    <TextBlock Grid.Row="4" x:Name="FooterHint" FontSize="13" Foreground="#5A6B62" Margin="0,8,0,0"
+               Text="Tipp: Externe Festplatte für Fotos bereithalten. Zuerst in einer VM testen."/>
+  </Grid>
+</Window>

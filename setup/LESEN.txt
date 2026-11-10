@@ -1,0 +1,24 @@
+FrischStart — Installation
+==========================
+
+1. Diesen Ordner (oder die ZIP) auf den Ziel-PC kopieren.
+2. Rechtsklick auf "Start-Installation.bat"
+   → "Als Administrator ausführen"
+3. Fertig: Startmenü / Desktop-Verknüpfung "FrischStart"
+4. FrischStart starten → "Installation starten (Assistent)"
+
+Was ist enthalten?
+- FrischStart.exe (inkl. .NET 8 — kein separates Runtime-Setup nötig)
+- Anleitungen im Ordner docs\
+- Installations- und Deinstallationsskripte
+
+Was Windows bereits mitbringt (wird geprüft):
+- diskpart, bcdedit, robocopy, Aufgabenplanung, PowerShell
+
+Was NICHT enthalten ist (rechtlich/technisch):
+- Windows selbst / Installations-ISO
+- Windows-Installationsstick (nur bei Weg "Neuinstallation" nötig)
+
+Deinstallation:
+- Windows-Einstellungen → Apps → FrischStart
+  oder Uninstall-FrischStart.ps1 als Admin

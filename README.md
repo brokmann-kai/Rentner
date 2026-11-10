@@ -5,49 +5,44 @@ Eltern/Großeltern absichern wollen. **Nach jedem Neustart ist das System wieder
 
 ## Kernidee (ohne Zertifikat, ohne Testmodus)
 
-Eigene Engine auf **Differencing-VHDs** (Steadier-State-Prinzip):
+Differencing-VHDs + Assistent — Details: [docs/ARCHITEKTUR.md](docs/ARCHITEKTUR.md)
 
-- Unveränderliche Parent-VHD (`golden.vhdx`)
-- Zwei Diff-VHDs im Wechsel
-- Beim Start wird die nächste Diff frisch erzeugt
-- Windows-Bordmittel (`diskpart`, `bcdedit`) — **von Microsoft signiert**
-- **Kein eigener Kernel-Treiber** → kein EV-Zertifikat, kein Wasserzeichen
+## Vollständige Installation (für Ziel-PCs)
 
-Details: [docs/ARCHITEKTUR.md](docs/ARCHITEKTUR.md) · Setup: [docs/VHD-SETUP.md](docs/VHD-SETUP.md)
+### Release bauen (Entwickler-PC mit .NET 8 SDK)
 
-## Für wen?
-
-| Rolle | Aufgabe |
-|-------|---------|
-| **Angehörige** | Einmal VHD-Setup + FrischStart aktivieren |
-| **Seniorin / Senior** | Bei Problemen: PC neu starten |
-
-Fotos/Dokumente → **externe Festplatte** (nicht in der System-VHD).
-
-## Repo
-
-```
-src/FrischStart.App/      WPF-Assistent (Deutsch)
-src/FrischStart.Core/     VHD-Engine + optional alter Treiber-Bridge
-docs/                     Architektur & Setup
-vendor/SysRestoreDriver/  nur experimentell (braucht Testmodus)
+```powershell
+.\scripts\publish-release.ps1
 ```
 
-## Bauen
+Erzeugt:
+
+- `dist\FrischStart-0.2.3\` — fertiges Paket
+- `dist\FrischStart-0.2.3-win-x64.zip`
+
+### Auf dem Senioren-PC installieren
+
+1. ZIP entpacken  
+2. Rechtsklick **`Start-Installation.bat`** → **Als Administrator**  
+3. FrischStart startet → **„Installation starten (Assistent)“**
+
+Enthalten / mitgeliefert:
+
+| Komponente | Status |
+|------------|--------|
+| FrischStart.exe | Self-Contained inkl. **.NET 8** |
+| Anleitungen | `docs\` |
+| Installer / Uninstaller | ja |
+| diskpart, bcdedit, robocopy, schtasks | Windows-Bordmittel (werden geprüft) |
+| Windows-ISO / Installstick | **nicht** enthalten (nur bei Neuinstallations-Weg nötig) |
+
+Optional mit [Inno Setup](https://jrsoftware.org/isinfo.php): `setup\FrischStart.iss` → `FrischStart-*-Setup.exe`
+
+## Entwicklung
 
 ```powershell
 dotnet build src\FrischStart.sln -c Release
-# Start als Administrator:
-.\src\FrischStart.App\bin\Release\net8.0-windows\FrischStart.exe
 ```
-
-Voraussetzungen: .NET 8 SDK, Windows 10/11.  
-**Kein Visual Studio / WDK** für den Hauptweg nötig.
-
-## Status
-
-VHD-Engine + UI sind im Prototyp. Zuerst in einer **VM** testen.
-Erstes Setup der Golden-VHD ist der aufwendigste Schritt (danach einfach).
 
 ## Lizenz
 

@@ -1,5 +1,11 @@
 # Changelog (English)
 
+## [0.2.3] — 2026-03-10
+
+### Added
+- **Full install package**: self-contained publish, `Start-Installation.bat`,
+  install/uninstall scripts, optional Inno Setup (`setup/FrischStart.iss`).
+
 ## [0.2.2] — 2026-03-10
 
 ### Added

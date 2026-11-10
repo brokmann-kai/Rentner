@@ -8,6 +8,10 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <RootNamespace>FrischStart.App</RootNamespace>
     <AssemblyName>FrischStart</AssemblyName>
+    <Version>0.2.2</Version>
+    <Product>FrischStart</Product>
+    <Company>FrischStart</Company>
+    <Description>Neustart-Schutz für Senioren-PCs (Differencing-VHD)</Description>
     <ApplicationIcon />
   </PropertyGroup>
   <ItemGroup>

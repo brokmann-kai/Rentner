@@ -132,6 +132,8 @@ public partial class MainWindow : Window
     {
         var candidates = new[]
         {
+            Path.Combine(AppContext.BaseDirectory, "docs", "VHD-SETUP.md"),
+            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles), "FrischStart", "docs", "VHD-SETUP.md"),
             Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "..", "docs", "VHD-SETUP.md")),
             Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, "docs", "VHD-SETUP.md")),
             Path.Combine(VhdConfig.ConfigDirectory, "VHD-SETUP.md")
